@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Task list</title>
+<link rel="stylesheet" type="text/css" href="tasks.css" media="screen"/>
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jquery-tmpl.js"></script>
+<script src="jquery-serialization.js"></script>
+<script src="tasks-controller.js"></script>
+</head>
+<body>
+<header>
+<span>Task List</span>
+</header>
+<main id="mainId">
+<section id="taskCreation" class="not">
+<form id="formId">
+<div>
+<label>Task</label>
+<input type="text" required="required" name="task" class="large" placeholder="Breakfast at tiffins"/>
+</div>
+<div>
+<label>Required by</label>
+<input type="date" required="required" name="requiredBy" class="large"/>
+</div>
+<div>
+<label>Category</label>
+<select name="category">
+<option value="Personal">Personal</option>
+<option value="Official">Official</option>
+</select>
+</div>
+<nav>
+<a href="#" id="saveTask">Save Task</a>
+<a href="#" id="clearTask">Clear Task</a>
+</nav>
+</form>
+</section>
+<section>
+<table id="tblTasks">
+<colgroup>
+<col width="40%">
+<col width="15%">
+<col width="15%">
+<col width="30%">
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Due</th>
+<th>Category</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return library books</td>
+<td><time datetime="2013-1014">2013-10-14</time></td>                        
+<td>Personal</td>
+<td>
+<nav>
+<a href="#" class="editRow">Edit</a>
+<a href="#" class="completeRow">Complete</a>
+<a href="#" class="deleteRow" >Delete</a>
+</nav>
+</td>
+</tr>
+<tr>
+<td>Perform project demo stakeholders</td>
+<td><time datetime="2013-1014">2013-10-14</time></td>                        
+<td>Personal</td>
+<td>
+<nav>
+<a href="#" class="editRow">Edit</a>
+<a href="#" class="completeRow">Complete</a>
+<a href="#" class="deleteRow" >Delete</a>
+</nav>
+</td>
+</tr>
+<tr>
+<td>Meet friends for dinner</td>
+<td><time datetime="2013-1014">2013-10-14</time></td>                        
+<td>Personal</td>
+<td>
+<nav>
+<a href="#" class="editRow">Edit</a>
+<a href="#" class="completeRow">Complete</a>
+<a href="#" class="deleteRow" >Delete</a>
+</nav>
+</td>
+</tr>
+</tbody>
+</table>
+<nav>
+<a href="#" id="btnAddTask">Add Task</a>
+</nav>
+</section>
+</main>
+<footer>You have 3 tasks</footer>
+</body>
+<script>
+$(document).ready(function(){
+	tasksController.init($('#mainId'));
+})
+
+
+
+
+</script>
+<script id="taskRow" type="text/x-jQuery-tmpl">
+<tr>
+<td>${task}</td>
+<td><time datetime="${requiredBy}">
+${requiredBy}</time></td>
+<td>${category}</td>
+<td>
+<nav>
+<a href="#">Edit</a>
+<a href="#">Complete</a>
+<a href="#" class="deleteRow">Delete</a>
+</nav>
+</td>
+</tr>
+</script>
+</html>
